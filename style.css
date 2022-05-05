@@ -1,4 +1,6 @@
 :root {
+  --primary-color:hsl(170, 100%, 26%);
+
   font-size: 62.5%;
 }
 
