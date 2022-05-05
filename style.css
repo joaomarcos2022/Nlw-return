@@ -1,5 +1,6 @@
 :root {
   --primary-color:hsl(170, 100%, 26%);
+  --secondary-color: hsl(210, 11%, 15%, 1);
 
   font-size: 62.5%;
 }
@@ -16,8 +17,15 @@ h4 {
 
 h1 {
 font-size: 3.4rem;
+color: var(--secondary-color);
+line-height: 130%;
 }
 
 p {
   font-size: 1.8rem;
+  line-height: 150%;
+}
+
+button {
+  background: var(--primary-color);
 }
