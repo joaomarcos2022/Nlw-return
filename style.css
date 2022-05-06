@@ -22,20 +22,21 @@ header {
   width: 37.5rem;
   margin-right: auto;
   margin-left: auto;
-
-  padding-right: 2rem;
-  padding-left: 2rem;
+  margin-top: 4.1rem;
 }
 
 h4 {
   font-size: 1.4rem;
   color: hsl(181, 78%, 72%);
+  margin-bottom: 1.6rem;
 }
 
 h1 {
 font-size: 3.4rem;
 color: var(--secondary-color);
 line-height: 130%;
+
+margin-bottom: 2.4rem;
 }
 
 p {
@@ -43,6 +44,8 @@ p {
   line-height: 150%;
   font-weight: 400;
   color: var(--paragraph);
+
+  margin-bottom: 3.2rem;
 }
 
 button {
