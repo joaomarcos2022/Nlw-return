@@ -1,5 +1,6 @@
 *{
   margin: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -21,6 +22,9 @@ header {
   width: 37.5rem;
   margin-right: auto;
   margin-left: auto;
+
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 h4 {
