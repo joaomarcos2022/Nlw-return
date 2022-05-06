@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+}
+
 :root {
   --primary-color:hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
@@ -7,10 +11,16 @@
 }
 
 body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'DM Sans';
   font-size: 1.6rem;
 
   text-align: center;
+}
+
+header {
+  width: 37.5rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 h4 {
@@ -28,6 +38,7 @@ p {
   font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
+  color: var(--paragraph);
 }
 
 button {
