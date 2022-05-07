@@ -50,4 +50,6 @@ p {
 
 button {
   background: var(--primary-color);
+
+  border:none;
 }
