@@ -76,5 +76,6 @@ button {
 .stats {
   width: 32.7rem;
   height: 47rem;
-  
+
+  margin-inline: auto;
 }
