@@ -1,65 +1,91 @@
-// ========= SCROLL NAVIGATION ============ //
+window.addEventListener('scroll', onScroll)
+
+onScroll()
+
 function onScroll() {
+  showNavOnScroll()
+  showButtonOnScroll()
+
+  activateMenuAtCurrentSection(home)
+  activateMenuAtCurrentSection(services)
+  activateMenuAtCurrentSection(about)
+  activateMenuAtCurrentSection(contact)
+}
+
+function activateMenuAtCurrentSection(section) {
+  const targetLine = scrollY + innerHeight / 2
+
+  // verificar se a seção passou a linha
+
+  const sectionTop = section.offsetTop
+  const sectionHeight = section.offsetHeight
+
+  const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
+
+  // console.log('o topo da seção chegou ou passou da linha?', sectionTopReachOrPassedTargetLine);
+
+  // verificar se a base está abaixo da linha alvo
+
+  const sectionEndsAt = sectionTop + sectionHeight
+
+  const sectionEndPassedTargetLine = sectionEndsAt <= targetLine
+
+  // console.log('o fundo da seção passou da linha?', sectionEndPassedTargetLine);
+
+  // limites da seção
+  const sectionBoudaries =
+    sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine
+
+  const sectionId = section.getAttribute('id')
+
+  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
+
+  menuElement.classList.remove('active')
+  if (sectionBoudaries) {
+    menuElement.classList.add('active')
+  }
+}
+
+function showNavOnScroll() {
   if (scrollY > 0) {
-    nav.classList.add('scroll')
+    navigation.classList.add('scroll')
   } else {
-    nav.classList.remove('scroll')
+    navigation.classList.remove('scroll')
   }
 }
 
-// ========= MENU MOBILE ============ //
-const navMenu = document.getElementById('menu-mobile')
-
-function toggleMenu() {
-  const nav = document.getElementById('nav')
-  nav.classList.toggle('active')
-}
-
-navMenu.addEventListener('click', toggleMenu)
-
-// ========= REMOVE MENU MOBILE ============ //
-const links = document.querySelectorAll('nav ul li a')
-
-for (const link of links) {
-  link.addEventListener('click', function () {
-    nav.classList.remove('active')
-  })
-}
-
-// ========= SCROLL TOP ============ //
-const backTopButton = document.querySelector('.back-top')
-function backToTop() {
-  if (window.scrollY >= 550) {
-    backTopButton.classList.add('show')
+function showButtonOnScroll() {
+  if (scrollY > 500) {
+    backToTopButton.classList.add('show')
   } else {
-    backTopButton.classList.remove('show')
+    backToTopButton.classList.remove('show')
   }
 }
 
-window.addEventListener('scroll', function () {
-  backToTop()
-})
+function openMenu() {
+  document.body.classList.add('menu-expanded')
+}
 
-// ========= SCROLL REVEAL ============ //
- 
-const scrollReveal = ScrollReveal({
-  origin: 'top',
-  distance: '50px',
-  duration: 2000
-})
+function closeMenu() {
+  document.body.classList.remove('menu-expanded')
+}
 
-scrollReveal.reveal('.topRevealSmall', { delay: 400 })
-scrollReveal.reveal('.topRevealMedium', { delay: 600 })
-scrollReveal.reveal('.topRevealLarge', { delay: 800 })
-
-
-// SCROLL BOTTOM
-const scrollRevealBottom = ScrollReveal({
+ScrollReveal({
+  reset: true,
   origin: 'bottom',
-  distance: '50px',
-  duration: 2000
-})
-
-scrollReveal.reveal('.bottomRevealSmall', { delay: 400 })
-scrollReveal.reveal('.bottomRevealMedium', { delay: 600 })
-scrollReveal.reveal('.bottomRevealLarge', { delay: 800 })
+  distance: '30px',
+  duration: 700
+}).reveal(`
+#home,
+#home img,
+#home .stats,
+#services,
+#services header,
+#services .card,
+#about,
+#about header,
+#about .content,
+#about img,
+#contact,
+#contact header,
+#contact .content`)
